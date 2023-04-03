@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   
   #to allow all route
   resources :articles
-
-  get "get_request",to:'pages#get_request'
+  get 'signup',to:'users#new'
+  # post 'users',to:'users#create'
+  resources :users,exept:[:new]
 end
