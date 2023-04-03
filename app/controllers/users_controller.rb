@@ -1,4 +1,11 @@
 class UsersController < ApplicationController
+
+  def show
+    @user = User.find(params[:id])
+    @articles = @user.articles
+    # or by passing variable obj whle rendering
+  end
+
   def new
     @user= User.new
   end
