@@ -25,13 +25,13 @@
         </div>
 
          <div class="form-group row justify-content-center mt-4">
-          <%= f.submit "Sign up", class:"btn btn-outline-light btn-lg"%>
+          <%= f.submit(@user.new_record? ? "Sign up" : "Update User", class:"btn btn-outline-light btn-lg")%>
         </div>
 
       <% end %>
     </div>
     <div class="mb-3 text-center">
-      <%= link_to 'Retrun to listing', articles_path, class:"text-center text-color-info"%>
+      <%= link_to '[Cancel or Retrun to listing]', articles_path, class:"text-center text-color-info"%>
     </div>
   </div>
 </div>

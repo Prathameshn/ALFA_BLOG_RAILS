@@ -3,6 +3,21 @@ class UsersController < ApplicationController
     @user= User.new
   end
 
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  def update
+     # debugger
+     @user = User.find(params[:id])
+     if @user.update(user_params)
+       flash[:notice] = "#{@user.username} Updated Successfully"
+       redirect_to  articles_path
+     else
+       render 'edit'
+     end
+  end
+
   def create
     # debugger
     @user = User.new(user_params)
@@ -18,5 +33,9 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(:username,:email,:password)
+  end
+
+  def set_user
+
   end
 end
