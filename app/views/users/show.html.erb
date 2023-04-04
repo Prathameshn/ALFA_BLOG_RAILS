@@ -1,4 +1,10 @@
 <h1 h1 class="text-center mt-4"><%= @user.username%>'s Profile</h1>
 <%= gravator_for @user, size: 200%>
 <h3 class="text-center mt-4"><%= @user.username%></h3>
+<div class="text-center">
+  <%if logged_in?  && @user == current_user%>
+    <%= link_to "View Profile",user_path(@user),data: { "turbo-method": :get },class:"btn btn-outline-success" %>
+    <%= link_to "Edit Profile",edit_user_path(@user),data: { "turbo-method": :get },class:"btn btn-outline-info" %>
+  <%end%>
+</div>
 <%= render 'articles/article' %>

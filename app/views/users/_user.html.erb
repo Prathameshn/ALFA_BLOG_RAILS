@@ -15,8 +15,10 @@
               <%# <a href="#" class="btn btn-outline-success">View</a>
               <a href="#" class="btn btn-outline-info">Edit</a>
               <a href="#" class="btn btn-outline-danger">Delete</a> %>
-              <%= link_to "View Profile",user_path(user),data: { "turbo-method": :get },class:"btn btn-outline-success" %>
-              <%= link_to "Edit Profile",edit_user_path(user),data: { "turbo-method": :get },class:"btn btn-outline-info" %>
+              <%if logged_in?  && user == current_user%>
+                <%= link_to "View Profile",user_path(user),data: { "turbo-method": :get },class:"btn btn-outline-success" %>
+                <%= link_to "Edit Profile",edit_user_path(user),data: { "turbo-method": :get },class:"btn btn-outline-info" %>
+              <%end%>
             </div>
             <div class="card-footer text-muted">
               Joined <%=time_ago_in_words(user.created_at)%>
